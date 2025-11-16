@@ -134,6 +134,7 @@
           <p class="card-text"><%= review.comment %></p>
           <!-- <p class="card-text"><b><%# review.rating %> Stars</b></p> -->
         </div>
+        <% if(currUser){ %>
         <form
           method="post"
           action="/listing/<%= showData._id %>/reviews/<%= review._id %>?_method=DELETE"
@@ -141,6 +142,7 @@
         >
           <button class="btn btn-sm btn-dark">Delete</button>
         </form>
+        <% } %>
       </div>
     </div>
     <% } %>

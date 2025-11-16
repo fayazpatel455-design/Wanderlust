@@ -83,7 +83,7 @@ const store = MongoStore.create({
   touchAfter: 24 * 3600,
 });
 
-store.on("error",()=>{
+store.on("error",(err)=>{
   console.log("ERROR IN MONGO SESSION STORE",err)
 })
 
@@ -105,10 +105,7 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use((req, res, next) => {
-//   console.log("USER >>>", req.user);
-//   next();
-// });
+
 
 passport.use(new LocalStrategy(User.authenticate()));
 
@@ -163,25 +160,3 @@ app.use((err, req, res, next) => {
   // // res.send("somthing went wrong");
   res.status(status).render("error.ejs", { message });
 });
-
-// Cookies
-
-// app.get("/getcoockies",(req,res)=>{
-//   res.cookie('greet','hello');
-//   res.send("coockies");
-// })
-// app.get("/", (req, res) => {
-//   console.log(req.cookies)
-//   res.send("working");
-// });
-
-// app.get("/getsignedcookies", (req, res) => {
-//   res.cookie('greet', 'hello', { signed: true });
-//   res.send('done');
-// });
-
-// app.get("/verify", (req, res) => {
-//   // console.log(req.cookies);
-//   console.log(req.signedCookies);
-//   res.send("working");
-// });

@@ -22,13 +22,6 @@ cloudinary.api.resources()
 
 
 
-
-
-
-
-
-
-
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {

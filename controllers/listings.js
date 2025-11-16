@@ -91,34 +91,7 @@ module.exports.updateListing = async (req, res) => {
   req.flash("sucess", "Listing Was Updated");
   res.redirect(`/listing/${id}`);
 };
-// module.exports.updateListing = async (req, res) => {
-//   const { id } = req.params;
-//   const listing = await Listing.findById(id);
 
-//   if (!listing) {
-//     req.flash("error", "Listing you requested for does not exist");
-//     return res.redirect("/listing");
-//   }
-
-//   // update all text fields
-//   listing.title = req.body.listing.title;
-//   listing.description = req.body.listing.description;
-//   listing.price = req.body.listing.price;
-//   listing.location = req.body.listing.location;
-//   listing.country = req.body.listing.country;
-
-//   //  only update image if user uploaded a new one
-//   if (req.file) {
-//     listing.image = {
-//       url: req.file.path,
-//       filename: req.file.filename
-//     };
-//   }
-
-//   await listing.save();
-//   req.flash("sucess", "Listing Was Updated");
-//   res.redirect(`/listing/${id}`);
-// };
 
 //deleting
 module.exports.destroyListing = async (req, res) => {
