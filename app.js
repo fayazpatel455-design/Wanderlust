@@ -4,6 +4,11 @@ process.env.DOTENV_CONFIG_SILENT = "true";
 if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
 
 // require('dotenv').config();
 // console.log(process.env.SECRET);
@@ -142,7 +147,8 @@ app.use("/listing/:id/reviews", reviewsRouter);
 const userRouter = require("./routes/user.js");
 app.use("/", userRouter);
 
-app.listen("3000", () => {
+
+app.listen(PORT, () => {
   console.log("listing");
 });
 
