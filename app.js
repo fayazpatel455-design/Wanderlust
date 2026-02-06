@@ -15,7 +15,9 @@ app.listen(PORT, () => {
 
 const express = require("express");
 const app = express();
-
+app.listen(PORT, () => {
+  console.log("listing");
+});
 //for views
 const path = require("path");
 app.set("views", path.join(__dirname, "views"));
@@ -148,9 +150,7 @@ const userRouter = require("./routes/user.js");
 app.use("/", userRouter);
 
 
-app.listen(PORT, () => {
-  console.log("listing");
-});
+
 
 // agr request wrong aayi toh
 // app.all('(.*)',(req,res,next)=>{
